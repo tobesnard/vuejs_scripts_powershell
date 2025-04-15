@@ -13,18 +13,19 @@
     
     Notes :
 
-    Ce script est utilisé par les commandes `npm run ...`.
-    Voir la section `scripts` du fichier `next/vuejs/package.json`.
+    Le script doit être exécuté depuis le répertoire `vuejs`.
+    Ce script utilise et est utilisé par les commandes `npm run ...`.
+    Voir la section `scripts` du fichier `vuejs/package.json`.
 
     En production, les fichiers JS et CSS sont renommés avec la date de construction. 
-    Il s'agit d'un autre mécanisme pour gérer le cache. Ce travail est fait par le compilateur Vite.
+    Il s'agit d'un autre mécanisme pour gérer le cache. Ce travail est fait par l'outil de développement Vite.
     Voir la section `build->rollupOptions->output->chunkFileNames` du fichier `vite.config.js`.
 
 .PARAMETER Type
     Spécifie le type de build à générer :
-    - `dev`  : compilation pour le développement.
-    - `prod` : compilation pour la production.
-    - `all`  : compilation pour le développement et la production.
+    - dev  : compilation pour le développement.
+    - prod : compilation pour la production.
+    - all  : compilation pour le développement et la production.
 
 .PARAMETER Project
     Spécifie le nom du projet à compiler. 
@@ -82,8 +83,8 @@ function buildProd
 function appendVersion
 {
     param($Dist)
-    $files = getFilenames -Dist $dist
 
+    $files = getFilenames -Dist $dist
     $appendString = "?version=<?=`$this->config->item('commonVar')['appVersion'];?>"
     foreach( $file in $files){
         ( Get-Content -path ("$dist\$Project\$Project.php") ) -replace $file.Replace('.', '\.'), ( $file + $appendString ) | Set-Content -Path ("$dist\$Project\$Project.php")
@@ -105,6 +106,7 @@ function getFilenames
 function setBuildVersion
 {
     param($Dist)
+
     $version = get-date -Format "yyyyMMdd-HHmm"
     ( get-content -Path ("$dist\$Project\$Project.php") ) -replace '##buildVersion##', $version | Set-Content -Path ("$dist\$Project\$Project.php")
 }

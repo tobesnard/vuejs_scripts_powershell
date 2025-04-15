@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Script pour le déploiement et la mise à jour de Next et NextBrowser.
+    Script pour visualiser l'état et mettre à jour à la fois Next et Nextbrowser depuis un poste serveur.
 
 .DESCRIPTION
     Ce script effectue les opérations suivantes :
@@ -8,12 +8,13 @@
     - Force la mise à jour de Next via le script `selfMaj`.
     - Affiche quelques constantes pour vérifier la mise à jour (Commit, NOVERSNXTB, date de modification du fichier `nextbrowser.zip`).
 
-.NOTES
-    - Le script doit être exécuté depuis le serveur.
+    Notes :
+    - Le script doit être exécuté depuis un poste serveur.
     - un préalable est nécessaire :
         [préalable à l'exécutions de script Powershell](./readme.md#déploiement-step1ps1)
-        [Avoir connaissance du fonctionnement](#déploiement-nextbrowserps1)
-.AMÉLIORATIONS POSSIBLES
+        [Avoir connaissance du fonctionnement](.readme.md#déploiement-nextbrowserps1)
+
+    Améliorations possibles :
     - Faire en sorte que le script soit déployé avec les versions de Next, le rendant ainsi disponible sans téléchargement préalable.
 #>
 
@@ -30,7 +31,6 @@ function Set-DBParametre {
 	$postdata = @{multiple=$false; nomOpt=$Param; valueOpt=$Value}
 	$uri = "http://localhost/prog/next/index.php/common/setParametre"
 	(Invoke-WebRequest -Method Post -Headers $header -Body $postdata -Uri $uri).Content > null
-
 }
 
 # Récupère la valeur d'un paramètre de la table `parametre` dans la base de données.
@@ -51,6 +51,7 @@ function Show-Info {
     param(
         [string]$Message
     )
+    $manageexe_path = "C:\PharmaVitale\Fichiers\PHP\Prog\Next\asset\manageExe\update\nextbrowser.zip"
     Write-Host "---- Informations " $Message
     Write-Host "Commit ->" ( git log -1 --format="%h : %s" )
 	Write-Host "Numéro de version NOVERSNXTB : " ( Get-DBParametre -Param NOVERSNXTB )
@@ -63,8 +64,7 @@ function Show-Info {
 # ensuite on exécute le script `selfMaj` qui forcer la mise à jour de Next
 # enfin on vérifie la version de NextBrowser via le paramètre en BDD NOVERSNXTB 
 function Run-Pass {
-	$manageexe_path = "C:\PharmaVitale\Fichiers\PHP\Prog\Next\asset\manageExe\update\nextbrowser.zip"
-	Write-Host "Démarrage de la mise à jour de NextBrowser"
+	Write-Host "Démarrage du processus de mise à jour de Next de Nextbrowser.zip"
     Show-Info "avant exécution"
 	Write-Host "Mise à jour de manageExe\update\nextbrowser.zip ..."
 	(Invoke-WebRequest http://localhost/prog/next/index.php/cron/manageExe).Content > null
@@ -74,7 +74,6 @@ function Run-Pass {
 	(Invoke-WebRequest http://localhost/prog/next/index.php/cron/selfMaj/1).Content > null
     Show-Info "après exécution"
 }
-
 
 
 # Début du script
