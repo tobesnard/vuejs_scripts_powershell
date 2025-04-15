@@ -5,7 +5,7 @@ Pour consulter la documentation d'un script PowerShell, vous pouvez soit :
 1. Utiliser la commande PowerShell : `Get-Help .\script-name.ps1 -Detailed`
 2. Consulter le fichier `script-name.ps1`
 
-## build script
+## Build script.ps1
 
 Script de génération des builds pour les projets écrits en Vue.js.
 Ce script ajoute quelques étapes à la compilation classique via Vite.
@@ -17,7 +17,7 @@ Ce script ne renomme pas les fichiers JS et CSS de la production en ajoutant la 
 Ce travail est effectué par l'outil de développement Vite et son fichier de configuration `vite.config.js`.
 Voir la section `build->rollupOptions->output->chunkFileNames` du fichier `vite.config.js`.
 
-## déploiement Nextbrowser
+## Déploiement Nextbrowser.ps1
 
 Script de contrôle et de mise à jour de Next et Nextbrowser.
 Ce script fait 3 choses : 
@@ -31,7 +31,7 @@ Ce script fait 3 choses :
 
 **Notes** :
 Ce script fonctionne uniquement sur le serveur.
-[Les étapes préalables](#déploiement-step1) doivent être vérifié. 
+[Les étapes préalables](#déploiement-step1ps1) doivent être vérifié. 
 Au préalable, le fichier `https://pharmavitale.fr/docs/releases/latest/NextBrowser.zip` doit être vérifié.
 C'est lui qui sera déployé. Il se trouve sur le ftp de cepi.
 
@@ -40,7 +40,7 @@ Utilisation depuis une console Powerhell :
 1. Télécharger le script : iwr https://pharmavitale.fr/docs/releases/script/deploiement_nextbrowser.ps1 -OutFile script.ps1
 2. Lancer le script : .\script.ps1
 
-## Déploiement Step1
+## Déploiement Step1.ps1
 
 Script pour préparer l'utilisation des autres script et notamment deploiement_nextbrowser.
 Sur les serveurs déjà en place tout devrait fonctionner.
@@ -52,6 +52,6 @@ Sur un nouveau serveur, il faut impérativement :
 - installer Powershell via la commande : winget install --id Microsoft.Powershell --source winget
 
 
-## Install Next NextBrowser
+## Install Next NextBrowser.ps1
 
 Ce script est en cours de création. Il n'a pas été testé.

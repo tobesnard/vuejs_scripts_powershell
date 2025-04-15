@@ -11,8 +11,8 @@
 .NOTES
     - Le script doit être exécuté depuis le serveur.
     - un préalable est nécessaire :
-        [préalable à l'exécutions de script Powershell](./readme.md#déploiement-step1)
-        [Avoir connaissance du fonctionnement](#déploiement-nextbrowser)
+        [préalable à l'exécutions de script Powershell](./readme.md#déploiement-step1ps1)
+        [Avoir connaissance du fonctionnement](#déploiement-nextbrowserps1)
 .AMÉLIORATIONS POSSIBLES
     - Faire en sorte que le script soit déployé avec les versions de Next, le rendant ainsi disponible sans téléchargement préalable.
 #>
