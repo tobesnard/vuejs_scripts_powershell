@@ -20,12 +20,13 @@ Voir la section `build->rollupOptions->output->chunkFileNames` du fichier `vite.
 
 Script de contrôle et de mise à jour de Next et Nextbrowser.
 Ce script fait 3 choses : 
-    1. Met à jour le fichier asset/manageExe/update/nextbrowser.zip 
-    2. Force la mise à jour de Next 
-    3. Affiche des informations avant/après telles que :
-        - le numéro de commit
-        - le paramètre NOVERNXTB 
-        - la date de modification du fichier Nextbrowser.zip 
+
+1. Met à jour le fichier asset/manageExe/update/nextbrowser.zip 
+2. Force la mise à jour de Next 
+3. Affiche des informations avant/après telles que :
+    - le numéro de commit
+    - le paramètre NOVERNXTB 
+    - la date de modification du fichier Nextbrowser.zip 
 
 Notes :
 Ce script fonctionne uniquement sur le serveur.
@@ -69,13 +70,14 @@ Voir la section `build->rollupOptions->output->chunkFileNames` du fichier `vite.
 ## déploiement Nextbrowser
 
 Script de contrôle et de mise à jour de Next et Nextbrowser.
-Ce script fait 3 choses : 
-    1. Mets à jour le fichier asset/manageExe/update/nextbrowser.zip 
-    2. Force la mise à jour de Next 
-    3. Affiche des informations avant/après tel que :
-        - le numéro de commit
-        - le paramètre NOVERNXTB 
-        - la date de modification du fichier Nextbrowser.zip 
+Ce script fait 3 choses :
+
+1. Mets à jour le fichier asset/manageExe/update/nextbrowser.zip 
+2. Force la mise à jour de Next 
+3. Affiche des informations avant/après tel que :
+    - le numéro de commit
+    - le paramètre NOVERNXTB 
+    - la date de modification du fichier Nextbrowser.zip 
 
 Notes:
 Ce script fonctionne uniquement sur le serveur.
@@ -84,14 +86,16 @@ Au préalable, le fichier `https://pharmavitale.fr/docs/releases/latest/NextBrow
 sera déployé. Il se trouve sur le ftp de cepi.
 
 Utilisation depuis une console Powerhell :
-    1. Télécharger le script : iwr https://pharmavitale.fr/docs/releases/script/deploiement_nextbrowser.ps1 -OutFile script.ps1 
-    2. Lancer le script : .\script.ps1
+
+1. Télécharger le script : iwr https://pharmavitale.fr/docs/releases/script/deploiement_nextbrowser.ps1 -OutFile script.ps1 
+2. Lancer le script : .\script.ps1
 
 ## déploiement step1
 
 Script pour préparer l'utilisation des autres script et notamment deploiement_nextbrowser.
 Sur les serveur déjà en place tout devrait fonctionner.
 Sur un nouveau serveur, il faut impérativement :
+ 
     - avoir Winget d'installé
     - Exécuter Powershell avec droit Administrateur
     - Avoir l'autorisation d'éxécuter des scripts : Set-ExecutionPolicy Unrestricted
